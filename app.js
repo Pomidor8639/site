@@ -110,7 +110,7 @@ const Sound = {
 
 /** ===================== Music ===================== **/
 
-const backgroundMusic = new Audio('music/background.mp3');
+const backgroundMusic = new Audio('background.mp3');
 backgroundMusic.loop = true;
 backgroundMusic.volume = 0.3;
 
