@@ -1,0 +1,1082 @@
+/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #e6e6e6;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #e6e6e6;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(10, 10, 20, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header {
+  text-align: center;
+  padding: 30px 20px 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 5px;
+  color: #ff3366;
+  text-shadow: 0 0 10px rgba(255, 51, 102, 0.5);
+}
+
+.creator {
+  font-size: 1.1rem;
+  color: #4db8ff;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-button {
+  flex: 1;
+  padding: 15px 0;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-button:hover {
+  color: #fff;
+  background: rgba(255, 51, 102, 0.2);
+}
+
+.tab-button.active {
+  color: #fff;
+  background: rgba(255, 51, 102, 0.4);
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #ff3366;
+}
+
+.tab-content {
+  display: none;
+  padding: 30px;
+  min-height: 500px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Стили для вкладки Прайс */
+.price-section {
+  background: rgba(30, 30, 50, 0.5);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.price-title {
+  color: #ff3366;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 51, 102, 0.5);
+}
+
+.price-item {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  background: rgba(20, 20, 40, 0.6);
+  border-radius: 8px;
+  border-left: 4px solid #ff3366;
+}
+
+.price-name {
+  font-weight: bold;
+  color: #4db8ff;
+}
+
+.price-value {
+  color: #ffcc00;
+  margin-top: 5px;
+}
+
+.price-description {
+  color: #bbb;
+  font-size: 0.95rem;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.payment-methods {
+  background: rgba(255, 51, 102, 0.2);
+}
+
+.payment-methods .price-value {
+  color: #ffcc00;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Стили для вкладки Рулетка */
+.roulette-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.wheel-container {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  margin-bottom: 30px;
+}
+
+.wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    #2a3a5a 0deg 45deg,
+    #3a4a6a 45deg 90deg,
+    #2a3a5a 90deg 135deg,
+    #3a4a6a 135deg 180deg,
+    #2a3a5a 180deg 225deg,
+    #3a4a6a 225deg 270deg,
+    #2a3a5a 270deg 315deg,
+    #3a4a6a 315deg 360deg
+  );
+  transition: transform 4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.wheel-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: #1a1a2e;
+  border-radius: 50%;
+  border: 4px solid #ffcc00;
+  z-index: 10;
+}
+
+.pointer {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 40px;
+  background: #ffcc00;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: 20;
+}
+
+.spin-button {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  background: linear-gradient(45deg, #ff3366, #ff9933);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+  transition: all 0.3s;
+  margin-bottom: 20px;
+}
+
+.spin-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 51, 102, 0.6);
+}
+
+.spin-button:disabled {
+  background: #666;
+  cursor: not-allowed;
+}
+
+.result {
+  background: rgba(30, 30, 50, 0.7);
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffcc00;
+  border: 2px solid #ffcc00;
+  margin-top: 20px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.instructions {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border-left: 4px solid #4db8ff;
+  max-width: 600px;
+}
+
+.instructions h3 {
+  color: #4db8ff;
+  margin-bottom: 10px;
+}
+
+/* Стили для меток призов на колесе */
+.prize-labels {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.prize-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+  color: #ffcc00;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  width: 120px;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+
+/* Стили для предпросмотра призов */
+.prizes-preview {
+  background: rgba(30, 30, 50, 0.7);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+  max-width: 350px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.prizes-preview h3 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.prizes-preview ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.prizes-preview li {
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  background: rgba(20, 20, 40, 0.6);
+  border-radius: 5px;
+  color: #fff;
+  font-size: 0.9rem;
+  border-left: 3px solid #4db8ff;
+}
+
+/* Стили для вкладки Ворки */
+.works-container {
+  padding: 20px 0;
+  max-width: 100%;
+}
+
+.works-intro {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+.works-intro h3 {
+  color: #ff3366;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.works-intro p {
+  color: #aaa;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.works-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  padding: 20px;
+  max-height: 800px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ff3366 rgba(0, 0, 0, 0.2);
+}
+
+.works-gallery::-webkit-scrollbar {
+  width: 8px;
+}
+
+.works-gallery::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.works-gallery::-webkit-scrollbar-thumb {
+  background-color: #ff3366;
+  border-radius: 4px;
+}
+
+.work-item {
+  display: flex;
+  flex-direction: column;
+  background: rgba(30, 30, 50, 0.5);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px 0;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.work-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.work-image {
+  width: 95%;
+  height: auto;
+  max-height: 700px;
+  object-fit: contain;
+  border-radius: 20px;
+  border: 1px solid #444;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin: 20px auto;
+  display: block;
+  aspect-ratio: 9/19;
+  position: relative;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background-color: transparent;
+}
+
+/* Phone notch */
+.work-image::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 10px;
+  background-color: #333;
+  border-radius: 0 0 8px 8px;
+  z-index: 2;
+  opacity: 0.7;
+}
+
+/* Phone home indicator */
+.work-image::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 4px;
+  background-color: #555;
+  border-radius: 2px;
+  z-index: 2;
+  opacity: 0.7;
+}
+
+.work-description {
+  padding: 25px;
+  text-align: center;
+  width: 100%;
+}
+
+.work-description h4 {
+  color: #4db8ff;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.work-description p {
+  color: #e6e6e6;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .works-gallery {
+    max-height: 600px;
+    gap: 50px;
+  }
+
+  .work-item {
+    margin-bottom: 20px;
+    padding: 20px 0;
+  }
+
+  .work-image {
+    width: 90%;
+    max-height: 600px;
+    border-width: 1px;
+  }
+
+  /* Adjust notch for tablets */
+  .work-image::before {
+    width: 40px;
+    height: 8px;
+    top: -1px;
+  }
+
+  /* Adjust home indicator for tablets */
+  .work-image::after {
+    width: 30px;
+    height: 3px;
+    bottom: -1px;
+  }
+
+  .works-intro h3 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .works-gallery {
+    padding: 10px;
+    max-height: 500px;
+    gap: 40px;
+  }
+
+  .work-item {
+    padding: 15px 0;
+  }
+
+  /* Улучшенные стили для изображений работ */
+  .work-image {
+    width: 95%;
+    height: auto;
+    max-height: 500px; /* Уменьшено с 700px */
+    object-fit: contain; /* Сохраняет пропорции */
+    border-radius: 20px;
+    border: 1px solid #444;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 20px auto;
+    display: block;
+    position: relative;
+    padding: 2px; /* Небольшой отступ */
+    background-color: #222; /* Фон для лучшего отображения */
+    max-width: 300px; /* Ограничение по ширине */
+  }
+
+  /* Альтернативный вариант - адаптивные размеры */
+  .work-image-responsive {
+    width: 90%;
+    max-width: 350px;
+    height: auto;
+    max-height: 60vh; /* 60% от высоты экрана */
+    object-fit: contain;
+    border-radius: 15px;
+    border: 1px solid #444;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 20px auto;
+    display: block;
+    background-color: #1a1a2e;
+  }
+
+  /* Для очень больших изображений */
+  .work-image-large {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover; /* Обрезает изображение для заполнения контейнера */
+    border-radius: 10px;
+    margin: 15px auto;
+    display: block;
+    cursor: pointer; /* Указывает, что можно кликнуть для увеличения */
+  }
+
+  /* Контейнер для работ с лучшей адаптивностью */
+  .works-gallery-improved {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Уменьшено расстояние между элементами */
+    padding: 20px;
+    max-height: 600px; /* Уменьшена высота контейнера */
+    overflow-y: auto;
+  }
+
+  .work-item-improved {
+    display: flex;
+    flex-direction: column;
+    background: rgba(30, 30, 50, 0.5);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0; /* Уменьшен отступ */
+    align-items: center;
+  }
+
+  /* Медиа-запросы для мобильных устройств */
+  @media (max-width: 768px) {
+    .work-image {
+      width: 85%;
+      max-width: 280px;
+      max-height: 400px;
+    }
+
+    .works-gallery {
+      max-height: 500px;
+      gap: 30px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .work-image {
+      width: 95%;
+      max-width: 250px;
+      max-height: 350px;
+      border-radius: 10px;
+    }
+
+    .works-gallery {
+      max-height: 400px;
+      gap: 25px;
+      padding: 15px;
+    }
+
+    .work-item {
+      padding: 15px 0;
+    }
+  }
+
+  /* Modal для просмотра изображений в полном размере */
+  .image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+  }
+
+  .image-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-image {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .close-modal:hover {
+    color: #ff3366;
+  }
+
+  /* Стили для вкладки Задания */
+  .coming-soon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    text-align: center;
+  }
+
+  .soon-icon {
+    font-size: 5rem;
+    color: #ff3366;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+  }
+
+  .soon-text {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    margin-bottom: 20px;
+  }
+
+  .soon-subtext {
+    font-size: 1.2rem;
+    color: #aaa;
+    max-width: 500px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.1rem;
+    color: #4db8ff;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+  }
+
+  /* Улучшения интерфейса */
+  .visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .price-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .price-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .tab-button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tab-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .tab-button:hover::before {
+    transform: translateX(0);
+  }
+
+  .instructions ol {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+
+  .instructions li {
+    margin-bottom: 8px;
+    color: #e6e6e6;
+  }
+
+  footer a {
+    color: #4db8ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  footer a:hover {
+    color: #ff3366;
+    text-decoration: underline;
+  }
+
+  /* Улучшения для рулетки */
+  .wheel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 1;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .wheel-center::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: #ffcc00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+  }
+
+  /* Адаптивный дизайн */
+  @media (max-width: 768px) {
+    .wheel-container {
+      width: 280px;
+      height: 280px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    .tab-button {
+      font-size: 1rem;
+      padding: 12px 0;
+    }
+
+    .price-title {
+      font-size: 1.5rem;
+    }
+
+    .price-section {
+      padding: 20px;
+    }
+
+    .instructions {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .wheel-container {
+      width: 220px;
+      height: 220px;
+    }
+
+    .tab-content {
+      padding: 20px 15px;
+    }
+
+    .spin-button {
+      padding: 12px 30px;
+      font-size: 1rem;
+    }
+
+    .price-item {
+      padding: 8px 12px;
+    }
+
+    .price-name, .price-value {
+      font-size: 0.9rem;
+    }
+
+    .container {
+      border-radius: 10px;
+    }
+
+    body {
+      padding: 10px;
+    }
+  }
+
+  /*
+   * Remove text-shadow in selection highlight:
+   * https://twitter.com/miketaylr/status/12228805301
+   *
+   * Customize the background color to match your design.
+   */
+  ::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+  }
+
+  ::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+  }
+
+  /*
+   * A better looking default horizontal rule
+   */
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+  }
+
+  /*
+   * Remove the gap between audio, canvas, iframes,
+   * images, videos and the bottom of their containers:
+   * https://github.com/h5bp/html5-boilerplate/issues/440
+   */
+  audio,
+  canvas,
+  iframe,
+  img,
+  svg,
+  video {
+    vertical-align: middle;
+  }
+
+  /*
+   * Remove default fieldset styles.
+   */
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  /*
+   * Allow only vertical resizing of textareas.
+   */
+  textarea {
+    resize: vertical;
+  }
+
+  /* ==========================================================================
+     Author's custom styles
+     ========================================================================== */
+  /* ==========================================================================
+     Helper classes
+     ========================================================================== */
+  /*
+   * Hide visually and from screen readers
+   */
+  .hidden,
+  [hidden] {
+    display: none !important;
+  }
+
+  /*
+   * Hide only visually, but have it available for screen readers:
+   * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+   *
+   * 1. For long content, line feeds are not interpreted as spaces and small width
+   *    causes content to wrap 1 word per line:
+   *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+   */
+  .visually-hidden {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    /* 1 */
+  }
+
+  /*
+   * Extends the .visually-hidden class to allow the element
+   * to be focusable when navigated to via the keyboard:
+   * https://www.drupal.org/node/897638
+   */
+  .visually-hidden.focusable:active,
+  .visually-hidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    white-space: inherit;
+    width: auto;
+  }
+
+  /*
+   * Hide visually and from screen readers, but maintain layout
+   */
+  .invisible {
+    visibility: hidden;
+  }
+
+  /*
+   * Clearfix: contain floats
+   *
+   * The use of `table` rather than `block` is only necessary if using
+   * `::before` to contain the top-margins of child elements.
+   */
+  .clearfix::before,
+  .clearfix::after {
+    content: "";
+    display: table;
+  }
+
+  .clearfix::after {
+    clear: both;
+  }
+
+  /* ==========================================================================
+     EXAMPLE Media Queries for Responsive Design.
+     These examples override the primary ('mobile first') styles.
+     Modify as content requires.
+     ========================================================================== */
+  @media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+  }
+
+  @media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+  }
+
+  /* ==========================================================================
+     Print styles.
+     Inlined to avoid the additional HTTP request:
+     https://www.phpied.com/delay-loading-your-print-css/
+     ========================================================================== */
+  @media print {
+    *,
+    *::before,
+    *::after {
+      background: #fff !important;
+      color: #000 !important;
+      /* Black prints faster */
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+
+    a[href]::after {
+      content: " (" attr(href) ")";
+    }
+
+    abbr[title]::after {
+      content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+    a[href^="#"]::after,
+    a[href^="javascript:"]::after {
+      content: "";
+    }
+
+    pre {
+      white-space: pre-wrap !important;
+    }
+
+    pre,
+    blockquote {
+      border: 1px solid #999;
+      page-break-inside: avoid;
+    }
+
+    tr,
+    img {
+      page-break-inside: avoid;
+    }
+
+    p,
+    h2,
+    h3 {
+      orphans: 3;
+      widows: 3;
+    }
+
+    h2,
+    h3 {
+      page-break-after: avoid;
+    }
+  }
+}
